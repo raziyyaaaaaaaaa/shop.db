@@ -14,7 +14,9 @@ admin_id = 5308654174
 bot = Bot(token=token, parse_mode="HTML")
 dp = Dispatcher()
 
-
+@dp.message(Command("start"))
+async def start_handler(message:types.Message):
+    await message.answer("Hello")
 "/add_category Food"
 @dp.message(F.from_user.id == admin_id, Command('add_category'))
 async def add_category(message: types.Message, command: CommandObject):
